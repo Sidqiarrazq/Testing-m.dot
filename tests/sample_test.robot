@@ -1,36 +1,20 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    library.py
-Test Setup       Open Browser    ${URL_BETA}    ${BROWSER}
+Test Setup       Open Browser    ${URL_STAGING}    ${BROWSER}
 Test Teardown    Close Browser
 
 *** Variables ***
 ${URL_STAGING}      https://dev-m-new.cinema21.co.id/
 ${URL_BETA}         https://m-new.cinema21.co.id/
 ${BROWSER}          firefox
-# ${USERNAME}         6281219693235
-# ${PASSWORD}         123456
+${USERNAME}         6281219693235
+${PASSWORD}         123456
 
-${USERNAME}         62821212121
-${PASSWORD}         212121
-${OTP}              111111
+# ${USERNAME}         62821212121
+# ${PASSWORD}         212121
+# ${OTP}              111111
 
-
-# DB Config
-${MESSAGE}        Hello, world!
-${PASSWORD}       ${EMPTY}
-${ALIAS}          mtix_devel
-
-${SSH_HOST}         34.124.238.137
-${SSH_PORT}         20001
-${SSH_USER}         regi
-${SSH_PKEY}         /Users/cinemaxxi/.ssh/id_rsa
-${SQL_HOST}         10.255.255.6
-# ${SQL_HOST}         localhost:3306
-${SQL_PORT}         3306
-${SQL_USER}         mtix_dev
-${SQL_PASSWORD}     mtix_dev@21
-${SQL_DATABASE}     mtix_application
 
 *** Test Cases ***
 Valid Login Test
@@ -38,7 +22,7 @@ Valid Login Test
     Submit Login Homepage
     Input Username And Password
     Submit Login Form
-    # Generate OTP Code      6281219693235
+    Generate OTP Code      6281219693235
     Input OTP
     Verify Login Success
     Submit User Button
